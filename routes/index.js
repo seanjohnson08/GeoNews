@@ -7,9 +7,9 @@ var ProtoBuf = require("protobufjs");
 router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 
-  var builder = ProtoBuf.loadProtoFile("data/test.proto");
-
-  console.log(builder);
+  ProtoBuf.loadProtoFile("data/test.proto", function(err, builder) {
+    console.log(err);
+  });
 });
 
 module.exports = router;
